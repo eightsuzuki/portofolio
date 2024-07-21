@@ -8,6 +8,7 @@ import Projects from '../components/Projects';
 import Skills from '../components/Skills';
 import Experience from '../components/Experience';
 import Contact from '../components/Contact';
+import MenuBar from "../components/MenuBar";
 
 export default function Home() {
   const waves = [
@@ -17,41 +18,52 @@ export default function Home() {
   ];
 
   return (
+
     <Box w="100%" h="100%">
-      <FootstepsIconComponent /> {/* 背景に足跡アイコンを追加 */}
-
-      <Box position="relative" h="100vh">
-        <Box
-          position="absolute"
-          top="50%"
-          left="50%"
-          transform="translate(-50%, -50%)"
-          fontSize="24px"
-          color="blue"
-          display="flex"
-          alignItems="center"
-        >
-          {'Loading...'.split('').map((char, index) => (
-            <BouncingText
-              key={index}
-              delay={`${index * 0.1}s`}
-              duration="1s"
-              fontSize="50px"
-              color="white"
-              mx="8px"
+      <MenuBar /> {/* メニューバーを追加 */}
+      <Box pt="60px"> {/* メニューバーの高さ分の余白を追加 */}
+        <FootstepsIconComponent />
+        <Box id="home" h="100vh">
+          <Box position="relative" h="100%">
+            <Box
+              position="absolute"
+              top="50%"
+              left="50%"
+              transform="translate(-50%, -50%)"
+              fontSize="24px"
+              color="blue"
+              display="flex"
+              alignItems="center"
             >
-              {char}
-            </BouncingText>
-          ))}
+              {'Loading...'.split('').map((char, index) => (
+                <BouncingText
+                  key={index}
+                  delay={`${index * 0.1}s`}
+                  duration="1s"
+                  fontSize="50px"
+                  color="white"
+                  mx="8px"
+                >
+                  {char}
+                </BouncingText>
+              ))}
+            </Box>
+            <WaveAnimation waves={waves} />
+          </Box>
         </Box>
-        <WaveAnimation waves={waves} />
+        <Box id="projects">
+          <Projects />
+        </Box>
+        <Box id="skills">
+          <Skills />
+        </Box>
+        <Box id="experience">
+          <Experience />
+        </Box>
+        <Box id="contact">
+          <Contact />
+        </Box>
       </Box>
-
-      <Header />
-      <Projects />
-      <Skills />
-      <Experience />
-      <Contact />
     </Box>
   );
 }
