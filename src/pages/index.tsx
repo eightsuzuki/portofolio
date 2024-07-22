@@ -18,7 +18,6 @@ export default function Home() {
   ];
 
   return (
-
     <Box w="100%" h="100%">
       <MenuBar /> {/* メニューバーを追加 */}
       <Box pt="60px"> {/* メニューバーの高さ分の余白を追加 */}
@@ -35,7 +34,7 @@ export default function Home() {
               display="flex"
               alignItems="center"
             >
-              {'Loading...'.split('').map((char, index) => (
+              {'Hello World...'.split('').map((char, index) => (
                 <BouncingText
                   key={index}
                   delay={`${index * 0.1}s`}
@@ -51,16 +50,16 @@ export default function Home() {
             <WaveAnimation waves={waves} />
           </Box>
         </Box>
-        <Box id="projects">
+        <Box id="projects" className="stamp-container">
           <Projects />
         </Box>
-        <Box id="skills">
+        <Box id="skills" className="stamp-container">
           <Skills />
         </Box>
-        <Box id="experience">
+        <Box id="experience" className="stamp-container">
           <Experience />
         </Box>
-        <Box id="contact">
+        <Box id="contact" className="stamp-container">
           <Contact />
         </Box>
       </Box>

@@ -25,9 +25,13 @@ const WaveAnimation: React.FC<WaveAnimationProps> = ({ waves }) => {
     if (!ctx) return; // コンテキストが取得できない場合は終了
     let animationFrameId: number;
 
-    // キャンバスサイズの設定
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas(); // 初期サイズ設定
 
     const drawWave = (time: number) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height); // キャンバスをクリア
@@ -44,8 +48,8 @@ const WaveAnimation: React.FC<WaveAnimationProps> = ({ waves }) => {
           ctx.lineTo(x, dy);
         }
 
-        ctx.lineTo(canvas.width, 0);
-        ctx.lineTo(0, 0);
+        ctx.lineTo(canvas.width, 0); // 波の右端から上にラインを引く
+        ctx.lineTo(0, 0); // 上部に戻る
         ctx.closePath();
         ctx.fillStyle = color; // 波の塗りつぶし色を設定
         ctx.fill(); // 波を塗りつぶし
@@ -60,6 +64,7 @@ const WaveAnimation: React.FC<WaveAnimationProps> = ({ waves }) => {
     drawWave(0); // 初回の描画
 
     return () => {
+      window.removeEventListener('resize', resizeCanvas); // クリーンアップ時にリサイズイベントを削除
       cancelAnimationFrame(animationFrameId); // クリーンアップ時にアニメーションフレームをキャンセル
     };
   }, [waves]);
