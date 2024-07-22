@@ -7,6 +7,7 @@ interface Position {
   y: number;
   timestamp: number;
   rotation: number;
+  scrollY: number;
 }
 
 const FootstepsIconComponent = () => {

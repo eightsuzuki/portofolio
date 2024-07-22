@@ -1,22 +1,51 @@
 .stamp-container {
   position: relative;
   padding: 20px;
-  margin: 20px;
-  background-color: #f5f5dc; /* 薄茶色の背景 */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 40px auto; /* セクションを中央に配置 */
+  max-width: 80%; /* 最大幅を設定 */
+  background-color: #faf3e0; /* 薄いベージュの背景 */
+  border-radius: 16px; /* 角を丸くする */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* ボックスシャドウを強化 */
+  transition: padding 0.3s ease, margin 0.3s ease, max-width 0.3s ease; /* スムーズなトランジションを追加 */
+}
+
+/* スマートフォン */
+@media (max-width: 600px) {
+  .stamp-container {
+    padding: 10px;
+    margin: 20px auto;
+    max-width: 90%;
+  }
+}
+
+/* タブレット */
+@media (min-width: 601px) and (max-width: 900px) {
+  .stamp-container {
+    padding: 15px;
+    margin: 30px auto;
+    max-width: 85%;
+  }
+}
+
+/* デスクトップ */
+@media (min-width: 901px) {
+  .stamp-container {
+    padding: 20px;
+    margin: 40px auto;
+    max-width: 80%;
+  }
 }
 
 .stamp-container::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: -10px; /* ボーダーが外側に出るように調整 */
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
   border: 8px solid transparent;
-  border-image: linear-gradient(135deg, blue 3.125%, white 3.125%, white 6.25%, red 6.25%, red 9.375%, white 9.375%, white 12.5%, blue 12.5%, blue 15.625%, white 15.625%, white 18.75%, red 18.75%, red 21.875%, white 21.875%, white 25%, blue 25%, blue 28.125%, white 28.125%, white 31.25%, red 31.25%, red 34.375%, white 34.375%, white 37.5%, blue 37.5%, blue 40.625%, white 40.625%, white 43.75%, red 43.75%, red 46.875%, white 46.875%, white 50%, blue 50%, blue 53.125%, white 53.125%, white 56.25%, red 56.25%, red 59.375%, white 59.375%, white 62.5%, blue 62.5%, blue 65.625%, white 65.625%, white 68.75%, red 68.75%, red 71.875%, white 71.875%, white 75%, blue 75%, blue 78.125%, white 78.125%, white 81.25%, red 81.25%, red 84.375%, white 84.375%, white 87.5%, blue 87.5%, blue 90.625%, white 90.625%, white 93.75%, red 93.75%, red 96.875%, white 96.875%, white) 10;
-  border-radius: 10px;
+  border-image: linear-gradient(135deg, blue 12.5%, white 12.5%, white 25%, red 25%, red 37.5%, white 37.5%, white 50%, blue 50%, blue 62.5%, white 62.5%, white 75%, red 75%, red 87.5%, white 87.5%, white) 10;
+  border-radius: 20px; /* 角を丸くする */
   pointer-events: none;
   z-index: 1;
 }
@@ -28,8 +57,8 @@
   left: 10px;
   right: 10px;
   bottom: 10px;
-  border: 2px dashed #ddd;
-  border-radius: 8px;
+  border: 2px dashed #ccc; /* 色を少し淡く */
+  border-radius: 12px; /* 角を丸くする */
   pointer-events: none;
   z-index: 2;
 }
