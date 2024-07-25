@@ -5,7 +5,7 @@ import "aos/dist/aos.css"; // AOSのCSSをインポート
 import WaveAnimation from "../components/WaveAnimation";
 import FootstepsIconComponent from "../components/FootstepsTracker";
 import MenuBar from "../components/MenuBar";
-import BouncingText from "../components/BouncingText";
+import BouncingBox from "../components/BouncingBox";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import Experience from "../components/Experience";
@@ -85,59 +85,20 @@ export default function Home() {
         >
           <Box
             position="absolute"
-            top="30%"
-            left="50%"
-            transform="translate(-50%, -50%)"
-            fontSize="24px"
             display="flex"
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
             textAlign="center"
-            flexWrap="wrap"
             maxWidth="100%"
             overflow="hidden"
-            p={2}
           >
-            <Box mb={2}>
-              {"Hello...".split("").map((char, index) => (
-                <BouncingText
-                  key={index}
-                  char={char}
-                  delay={`${index * 0.1}s`}
-                  duration="1s"
-                  fontSize={{ md: "50px" }} // 小さい画面では文字サイズを小さく
-                  color="white"
-                  mx={{ md: "8px" }} // 小さい画面では文字間のスペースを小さく
-                />
-              ))}
-            </Box>
-            <Box>
-              {"I'm".split("").map((char, index) => (
-                <BouncingText
-                  key={index + 100}
-                  char={char}
-                  delay={`${index * 0.1}s`}
-                  duration="1s"
-                  fontSize={{  md: "50px" }} // 小さい画面では文字サイズを小さく
-                  color="white"
-                  mx={{ md: "8px" }} // 小さい画面では文字間のスペースを小さく
-                />
-              ))}
-            </Box>
-            <Box>
-              {"Suzuki8".split("").map((char, index) => (
-                <BouncingText
-                  key={index + 100}
-                  char={char}
-                  delay={`${index * 0.1}s`}
-                  duration="1s"
-                  fontSize={{  md: "70px" }} // 小さい画面では文字サイズを小さく
-                  color="white"
-                  mx={{ md: "8px" }} // 小さい画面では文字間のスペースを小さく
-                />
-              ))}
-            </Box>
+            <BouncingBox
+              text="Hello..."
+              fontSize="50px"
+              color="white"
+              mx="8px"
+            />
           </Box>
           <WaveAnimation waves={waves} />
         </Box>
