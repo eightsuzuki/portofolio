@@ -4,7 +4,6 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 
 const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [placement, setPlacement] = useState('left');
 
   return (
     <>
@@ -29,7 +28,7 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
             _hover={{ bg: "rgba(49, 130, 206, 0.8)" }}
           />
         </Flex>
-        <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
+        <Drawer placement='left' onClose={onClose} isOpen={isOpen}>
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
