@@ -69,7 +69,7 @@ const WaveAnimation: React.FC<WaveAnimationProps> = ({ waves }) => {
     };
   }, [waves]);
 
-  return <canvas ref={canvasRef} style={{ width: '100%', height: '100vh' }} />; // キャンバスをレンダリング
+  return <canvas ref={canvasRef}/>; // キャンバスをレンダリング
 };
 
 export default WaveAnimation;

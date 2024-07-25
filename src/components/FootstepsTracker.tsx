@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Box, Icon } from "@chakra-ui/react";
-import FootstepsIcon from "../../assets/footsteps-silhouette.svg"; // SVGファイルをインポート
+import FootstepsIcon from "../../public/footsteps-silhouette.svg"; // SVGファイルをインポート
 
 interface Position {
   x: number;
