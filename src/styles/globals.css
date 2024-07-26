@@ -1,17 +1,15 @@
-.stamp-container {
-  position: relative;
+.simple-container {
   padding: 20px;
-  margin: 40px auto; /* セクションを中央に配置 */
-  max-width: 80%; /* 最大幅を設定 */
-  background-color: #faf3e0; /* 薄いベージュの背景 */
-  border-radius: 16px; /* 角を丸くする */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* ボックスシャドウを強化 */
-  transition: padding 0.3s ease, margin 0.3s ease, max-width 0.3s ease; /* スムーズなトランジションを追加 */
+  margin: 40px auto;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* スマートフォン */
 @media (max-width: 600px) {
-  .stamp-container {
+  .simple-container {
     padding: 10px;
     margin: 20px auto;
     max-width: 90%;
@@ -20,7 +18,7 @@
 
 /* タブレット */
 @media (min-width: 601px) and (max-width: 900px) {
-  .stamp-container {
+  .simple-container {
     padding: 15px;
     margin: 30px auto;
     max-width: 85%;
@@ -29,36 +27,9 @@
 
 /* デスクトップ */
 @media (min-width: 901px) {
-  .stamp-container {
+  .simple-container {
     padding: 20px;
     margin: 40px auto;
     max-width: 80%;
   }
-}
-
-.stamp-container::before {
-  content: "";
-  position: absolute;
-  top: -10px; /* ボーダーが外側に出るように調整 */
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  border: 8px solid transparent;
-  border-image: linear-gradient(135deg, blue 12.5%, white 12.5%, white 25%, red 25%, red 37.5%, white 37.5%, white 50%, blue 50%, blue 62.5%, white 62.5%, white 75%, red 75%, red 87.5%, white 87.5%, white) 10;
-  border-radius: 20px; /* 角を丸くする */
-  pointer-events: none;
-  z-index: 1;
-}
-
-.stamp-container::after {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border: 2px dashed #ccc; /* 色を少し淡く */
-  border-radius: 12px; /* 角を丸くする */
-  pointer-events: none;
-  z-index: 2;
 }

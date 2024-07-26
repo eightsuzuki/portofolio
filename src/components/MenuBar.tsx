@@ -1,13 +1,25 @@
 import { useState, useEffect } from 'react';
 import { Box, Flex, Link, IconButton, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, useDisclosure } from "@chakra-ui/react";
 import { HamburgerIcon } from '@chakra-ui/icons';
+import WaveAnimation from './WaveAnimation'; // WaveAnimationコンポーネントをインポート
 
 const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const waves = [
+    {
+      y: 20,
+      length: 0.02,
+      amplitude: 20,
+      horizontalSpeed: 0.003,
+      verticalSpeed: 0.003,
+      color: "rgba(0, 180, 220, 0.5)",
+    }
+  ];
+
   return (
     <>
-      <Box display={{ base: 'none', md: showMenuBar ? 'block' : 'none' }} position="fixed" top="0" width="100%" bg="rgb(49, 130, 206)" zIndex="1000">
+      <Box display={{ base: 'none', md: showMenuBar ? 'block' : 'none' }} position="fixed" top="0" width="100%" bg="rgba(0, 180, 220, 0.5)" zIndex="1000">
         <Flex justifyContent="center" alignItems="center" py="2"> 
           <Link href="#home" mx="2" color="white">Top</Link>
           <Link href="#projects" mx="2" color="white">Projects</Link>
@@ -15,8 +27,11 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
           <Link href="#experience" mx="2" color="white">Experience</Link>
           <Link href="#contact" mx="2" color="white">Contact</Link>
         </Flex>
+        <Box position="relative" width="100%" height="30px">
+          <WaveAnimation waves={waves} />
+        </Box>
       </Box>
-      <Box display={{ base: showMenuBar ? 'block' : 'none' , md: 'none' }} position="fixed" top="0" width="100%" bg="rgb(49, 130, 206)" zIndex="1000">
+      <Box display={{ base: showMenuBar ? 'block' : 'none', md: 'none' }} position="fixed" top="0" width="100%" bg="rgba(0, 180, 220, 0.5)" zIndex="1000">
         <Flex justifyContent="space-between" alignItems="center" px="4"> 
           <Box color="white" fontWeight="bold">My Portfolio</Box>
           <IconButton
@@ -42,6 +57,9 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
             </DrawerBody>
           </DrawerContent>
         </Drawer>
+        <Box position="relative" width="100%" height="30px">
+          <WaveAnimation waves={waves} />
+        </Box>
       </Box>
     </>
   );
