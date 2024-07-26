@@ -76,7 +76,7 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
             _hover={{ bg: "rgba(153, 153, 153, 0.3)" }}
           />
         </Flex>
-        <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
+        <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />

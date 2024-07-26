@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Box } from "@chakra-ui/react";
+import AOS from "aos";
+import "aos/dist/aos.css"; // AOSのCSSをインポート
 import WaveAnimation from "../components/WaveAnimation";
 import FootstepsIconComponent from "../components/FootstepsTracker";
 import MenuBar from "../components/MenuBar";
@@ -32,6 +34,8 @@ export default function Home() {
 
     window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleScroll);
+
+    AOS.init({ duration: 1000 }); // AOSの初期化
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -67,7 +71,7 @@ export default function Home() {
   ];
 
   return (
-    <Box w="100%" h="100%">
+    <Box w="100%" h="100%" bg="#faf3e0">
       <MenuBar showMenuBar={showMenuBar} />
       <Box position="relative">
         <FootstepsIconComponent />
@@ -98,13 +102,13 @@ export default function Home() {
           </Box>
           <WaveAnimation waves={waves} />
         </Box>
-        <Box id="projects" className="simple-container">
+        <Box id="projects" className="simple-container" data-aos="fade-right">
           <Projects />
         </Box>
-        <Box id="skills" className="simple-container">
+        <Box id="skills" className="simple-container" data-aos="fade-left">
           <Skills />
         </Box>
-        <Box id="experience" className="simple-container">
+        <Box id="experience" className="simple-container" data-aos="fade-right">
           <Experience />
         </Box>
         <Contact />
