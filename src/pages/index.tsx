@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { Box } from "@chakra-ui/react";
+
+import { Box, Link } from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import AOS from "aos";
 import "aos/dist/aos.css"; // AOSのCSSをインポート
 import WaveAnimation from "../components/WaveAnimation";
@@ -101,6 +103,15 @@ export default function Home() {
             />
           </Box>
           <WaveAnimation waves={waves} />
+        </Box>
+        <Link href="https://chakra-ui.com" isExternal>
+          Chakra Design system <ExternalLinkIcon mx="2px" />
+        </Link>
+        <Box id="about" data-aos="fade-up">
+          
+          <Link href="https://chakra-ui.com" isExternal>
+            Chakra Design system <ExternalLinkIcon mx="2px" />
+          </Link>
         </Box>
         <Box id="projects" data-aos="fade-up">
           <Projects />
