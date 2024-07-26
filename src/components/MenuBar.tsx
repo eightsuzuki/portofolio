@@ -25,7 +25,7 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
       amplitude: 5,
       horizontalSpeed: 0.003,
       verticalSpeed: 0.003,
-      color: "rgba(153, 218, 237, 1)",
+      color: "rgba(61, 172, 212, 1)",
     },
   ];
 

@@ -102,13 +102,13 @@ export default function Home() {
           </Box>
           <WaveAnimation waves={waves} />
         </Box>
-        <Box id="projects" className="simple-container" data-aos="fade-right">
+        <Box id="projects" data-aos="fade-up">
           <Projects />
         </Box>
-        <Box id="skills" className="simple-container" data-aos="fade-left">
+        <Box id="skills" data-aos="fade-up">
           <Skills />
         </Box>
-        <Box id="experience" className="simple-container" data-aos="fade-right">
+        <Box id="experience" data-aos="fade-up">
           <Experience />
         </Box>
         <Contact />
