@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { Box, Link } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import AOS from "aos";
@@ -73,56 +72,50 @@ export default function Home() {
   ];
 
   return (
-    <Box w="100%" h="100%" bg="#faf3e0">
+    <Box>
       <MenuBar showMenuBar={showMenuBar} />
-      <Box position="relative">
-        <FootstepsIconComponent />
-        <Box
-          id="home"
-          h="100vh"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          position="relative"
-        >
+      <Box w="100%" h="100%" bg="#faf3e0">
+        <Box position="relative">
+          <FootstepsIconComponent />
           <Box
-            position="absolute"
+            id="home"
+            h="100vh"
             display="flex"
-            flexDirection="column"
             alignItems="center"
             justifyContent="center"
-            textAlign="center"
-            maxWidth="100%"
-            overflow="hidden"
+            position="relative"
           >
-            <BouncingBox
-              text="Hello..."
-              fontSize="50px"
-              color="white"
-              mx="8px"
-            />
+            <Box
+              position="absolute"
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="center"
+              textAlign="center"
+              maxWidth="100%"
+              overflow="hidden"
+            >
+              <BouncingBox
+                text="Hello..."
+                fontSize="50px"
+                color="white"
+                mx="8px"
+              />
+            </Box>
+            <WaveAnimation waves={waves} />
           </Box>
-          <WaveAnimation waves={waves} />
+          <Box id="about" data-aos="fade-up"></Box>
+          <Box id="projects" data-aos="fade-up">
+            <Projects />
+          </Box>
+          <Box id="skills" data-aos="fade-up">
+            <Skills />
+          </Box>
+          <Box id="experience" data-aos="fade-up">
+            <Experience />
+          </Box>
+          <Contact />
         </Box>
-        <Link href="https://chakra-ui.com" isExternal>
-          Chakra Design system <ExternalLinkIcon mx="2px" />
-        </Link>
-        <Box id="about" data-aos="fade-up">
-          
-          <Link href="https://chakra-ui.com" isExternal>
-            Chakra Design system <ExternalLinkIcon mx="2px" />
-          </Link>
-        </Box>
-        <Box id="projects" data-aos="fade-up">
-          <Projects />
-        </Box>
-        <Box id="skills" data-aos="fade-up">
-          <Skills />
-        </Box>
-        <Box id="experience" data-aos="fade-up">
-          <Experience />
-        </Box>
-        <Contact />
       </Box>
     </Box>
   );

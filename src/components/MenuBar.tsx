@@ -107,7 +107,6 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
         height="30px"
         position="fixed"
         top="0"
-        zIndex="500"
       >
         <WaveAnimation waves={waves} />
       </Box>

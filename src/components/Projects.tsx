@@ -30,15 +30,9 @@ const ProjectItem = ({
     transition="all 0.3s"
     _hover={{ transform: "translateY(-5px)", boxShadow: "lg" }}
   >
-    <Link href="https://chakra-ui.com" isExternal>
-      Chakra Design system <ExternalLinkIcon mx="2px" />
-    </Link>
     <Heading as="h3" size="md" mb={3} color="#0077be">
       {title}
     </Heading>
-    <Link href="https://chakra-ui.com" isExternal>
-      Chakra Design system <ExternalLinkIcon mx="2px" />
-    </Link>
     <Text mb={2}>
       <strong>期間:</strong> {period}
     </Text>
@@ -78,9 +72,6 @@ const Projects = () => (
       Projects
     </Heading>
     <Grid templateColumns="1fr" gap={6} className="section-content">
-    <Link href="https://chakra-ui.com" isExternal>
-          Chakra Design system <ExternalLinkIcon mx="2px" />
-        </Link>
       <ProjectItem
         title="Twitter Clone"
         repository="https://github.com/eightsuzuki/Twitter-Clone"
