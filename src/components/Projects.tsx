@@ -48,9 +48,6 @@ const ProjectItem = ({
     <Text mb={2}>
       <strong>結果:</strong> {results}
     </Text>
-    <Link href="https://chakra-ui.com" isExternal>
-      Chakra Design system <ExternalLinkIcon mx="2px" />
-    </Link>
     <strong>レポジトリー:</strong>{" "}
     <Link href={repository} color="blue.500" isExternal>
       {repository}

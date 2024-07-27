@@ -102,11 +102,13 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
         </Drawer>
       </Box>
       <Box
-        display={{base: showMenuBar ? "block" : "none" }}
+        display={{ base: showMenuBar ? "block" : "none" }}
         width="100%"
         height="30px"
         position="fixed"
         top="0"
+        zIndex="500"
+        pointerEvents="none" // ここでpointer-eventsをnoneに設定
       >
         <WaveAnimation waves={waves} />
       </Box>
