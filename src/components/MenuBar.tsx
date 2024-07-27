@@ -12,6 +12,7 @@ import {
   DrawerBody,
   useDisclosure,
 } from "@chakra-ui/react";
+import AOS from "aos";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import WaveAnimation from "./WaveAnimation"; // WaveAnimationコンポーネントをインポート
 

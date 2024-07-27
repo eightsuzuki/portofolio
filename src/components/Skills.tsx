@@ -18,7 +18,7 @@ const SkillCategory = ({ title, skills }: { title: string; skills: { name: strin
 const Skills = () => (
   <Box className="section-container">
     <Heading as="h2" className="section-heading">Skills</Heading>
-    <SimpleGrid columns={[1, null, 3]} spacing={8} className="section-content">
+    <SimpleGrid columns={[1, 2, 3]} spacing={8} className="section-content">
       <SkillCategory 
         title="Programming Languages" 
         skills={[

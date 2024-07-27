@@ -50,13 +50,13 @@ const ProjectItem = ({
     </Text>
     <strong>レポジトリー:</strong>{" "}
     <Link href={repository} color="blue.500" isExternal>
-      {repository}
+      {repository} <ExternalLinkIcon mx="2px" />
     </Link>
     {demo && (
       <Text mb={2}>
         <strong>デモサイト:</strong>{" "}
-        <Link href={demo} color="blue.500" isExternal>
-          {demo}
+        <Link href={demo} color="blue.500" isExternal> 
+          {demo} <ExternalLinkIcon mx="2px" />
         </Link>
       </Text>
     )}
@@ -116,11 +116,6 @@ const Projects = () => (
         results="useStateやレンダリングの仕組みについて理解し、実際に実装。Jestを使用したテストの書き方についても学習。"
       />
     </Grid>
-    <GridItem>
-      <Link href="https://chakra-ui.com" isExternal>
-        Chakra Design system <ExternalLinkIcon mx="2px" />
-      </Link>
-    </GridItem>
   </Box>
 );
 

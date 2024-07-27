@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, Link } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import AOS from "aos";
 import "aos/dist/aos.css"; // AOSのCSSをインポート
@@ -114,6 +114,7 @@ export default function Home() {
           <Box id="experience" data-aos="fade-up">
             <Experience />
           </Box>
+
           <Contact />
         </Box>
       </Box>
