@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import {
   Box,
   Flex,
@@ -11,8 +10,8 @@ import {
   DrawerHeader,
   DrawerBody,
   useDisclosure,
+  Text,
 } from "@chakra-ui/react";
-import AOS from "aos";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import WaveAnimation from "./WaveAnimation"; // WaveAnimationコンポーネントをインポート
 
@@ -39,22 +38,42 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
         width="100%"
         zIndex="1000"
       >
-        <Flex justifyContent="center" alignItems="center" py="2" >
-          <Link href="#home" mx="2" color="white">
-            Top
-          </Link>
-          <Link href="#projects" mx="2" color="white">
-            Projects
-          </Link>
-          <Link href="#skills" mx="2" color="white">
-            Skills
-          </Link>
-          <Link href="#experience" mx="2" color="white">
-            Experience
-          </Link>
-          <Link href="#contact" mx="2" color="white">
-            Contact
-          </Link>
+        <Flex
+          justifyContent="space-between"
+          alignItems="center"
+          px="6" // パディングを増加
+          color="white"
+          height="100%" // 高さを100%に設定
+        >
+          <Text fontWeight="bold">
+            <Link
+              href="/"
+              mx="4" // マージンを増加
+              color="white"
+              fontSize="3xl" // フォントサイズを増加
+              textDecoration="none"
+              _hover={{ textDecoration: "none" }}
+            >
+              Suzuki8
+            </Link>
+          </Text>
+          <Flex justifyContent="center" alignItems="center">
+            <Link href="#home" mx="3" fontSize="xl">
+              Top
+            </Link>
+            <Link href="#projects" mx="3" fontSize="xl">
+              Projects
+            </Link>
+            <Link href="#skills" mx="3" fontSize="xl">
+              Skills
+            </Link>
+            <Link href="#experience" mx="3" fontSize="xl">
+              Experience
+            </Link>
+            <Link href="#contact" mx="3" fontSize="xl">
+              Contact
+            </Link>
+          </Flex>
         </Flex>
       </Box>
       <Box
@@ -64,17 +83,27 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
         width="100%"
         zIndex="1000"
       >
-        <Flex justifyContent="space-between" alignItems="center" px="4">
-          <Box color="white" fontWeight="bold">
-            My Portfolio
-          </Box>
+        <Flex justifyContent="space-between" alignItems="center" px="6">
+          <Text fontWeight="bold">
+            <Link
+              href="/"
+              mx="4" // マージンを増加
+              color="white"
+              fontSize="3xl" // フォントサイズを増加
+              textDecoration="none"
+              _hover={{ textDecoration: "none" }}
+            >
+              Suzuki8
+            </Link>
+          </Text>
           <IconButton
-            icon={<HamburgerIcon />}
+            icon={<HamburgerIcon w={8} h={8} />} // アイコンの大きさを指定
             aria-label="Open menu"
             onClick={onOpen}
             color="white"
             bg="rgb(49, 130, 20, 0)"
             _hover={{ bg: "rgba(153, 153, 153, 0.3)" }}
+            size="lg" // ボタンの大きさを指定
           />
         </Flex>
         <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
@@ -83,7 +112,7 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
             <DrawerCloseButton />
             <DrawerHeader>Menu</DrawerHeader>
             <DrawerBody>
-              <Link href="#home" display="block" py="2" onClick={onClose}>
+              <Link href="/" display="block" py="2" onClick={onClose}>
                 Top
               </Link>
               <Link href="#projects" display="block" py="2" onClick={onClose}>

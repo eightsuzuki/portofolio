@@ -5,12 +5,10 @@ import AOS from "aos";
 import "aos/dist/aos.css"; // AOSのCSSをインポート
 import WaveAnimation from "../components/WaveAnimation";
 import FootstepsIconComponent from "../components/FootstepsTracker";
-import MenuBar from "../components/MenuBar";
 import BouncingBox from "../components/BouncingBox";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import Experience from "../components/Experience";
-import Contact from "../components/Contact";
 
 export default function Home() {
   const [showMenuBar, setShowMenuBar] = useState(false);
@@ -26,11 +24,6 @@ export default function Home() {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const waveHeight = windowHeight * 0.75; // Waveアニメーションの高さをウィンドウの高さに基づいて設定
-      if (scrollY > waveHeight) {
-        setShowMenuBar(true);
-      } else {
-        setShowMenuBar(false);
-      }
     };
 
     window.addEventListener("resize", handleResize);
@@ -73,8 +66,7 @@ export default function Home() {
 
   return (
     <Box>
-      <MenuBar showMenuBar={showMenuBar} />
-      <Box w="100%" h="100%" bg="#faf3e0">
+      <Box w="100%" h="100%" pb={5} bg="#faf3e0">
         <Box position="relative">
           <FootstepsIconComponent />
           <Box
@@ -114,8 +106,6 @@ export default function Home() {
           <Box id="experience" data-aos="fade-up">
             <Experience />
           </Box>
-
-          <Contact />
         </Box>
       </Box>
     </Box>
