@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
 import AOS from "aos";
 import "aos/dist/aos.css"; // AOSのCSSをインポート
 import WaveAnimation from "../components/WaveAnimation";
@@ -11,8 +10,8 @@ import Skills from "../components/Skills";
 import Experience from "../components/Experience";
 
 export default function Home() {
-  const [showMenuBar, setShowMenuBar] = useState(false);
   const [windowHeight, setWindowHeight] = useState(0);
+  const [randomText, setRandomText] = useState("");
 
   useEffect(() => {
     setWindowHeight(window.innerHeight);
@@ -21,21 +20,20 @@ export default function Home() {
       setWindowHeight(window.innerHeight);
     };
 
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const waveHeight = windowHeight * 0.75; // Waveアニメーションの高さをウィンドウの高さに基づいて設定
-    };
-
     window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleScroll);
 
     AOS.init({ duration: 1000 }); // AOSの初期化
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleScroll);
     };
-  }, [windowHeight]);
+  }, []);
+
+  useEffect(() => {
+    const texts = ["Hello...", "Welcome!", "Hi there!", "Howdy!", "I`m 8", "suzuki8"];
+    const randomIndex = Math.floor(Math.random() * texts.length);
+    setRandomText(texts[randomIndex]);
+  }, []);
 
   const waves = [
     {
@@ -66,13 +64,13 @@ export default function Home() {
 
   return (
     <Box>
-      <Box w="100%" h="100%" pb={5} bg="#faf3e0">
+      <Box w="100%" h="100%" bg="#faf3e0">
         <Box position="relative">
           <FootstepsIconComponent />
-          <Box
+          <Flex
             id="home"
+            direction="column" // 縦方向に並べる
             h="100vh"
-            display="flex"
             alignItems="center"
             justifyContent="center"
             position="relative"
@@ -88,24 +86,26 @@ export default function Home() {
               overflow="hidden"
             >
               <BouncingBox
-                text="Hello..."
+                text={randomText} // ランダムなテキストを表示
                 fontSize="50px"
                 color="white"
                 mx="8px"
               />
             </Box>
             <WaveAnimation waves={waves} />
-          </Box>
-          <Box id="about" data-aos="fade-up"></Box>
-          <Box id="projects" data-aos="fade-up">
-            <Projects />
-          </Box>
-          <Box id="skills" data-aos="fade-up">
-            <Skills />
-          </Box>
-          <Box id="experience" data-aos="fade-up">
-            <Experience />
-          </Box>
+          </Flex>
+          <Flex direction="column" alignItems="center" data-aos="fade-up">
+            <Box id="about" data-aos="fade-up"></Box>
+            <Box id="projects" data-aos="fade-up">
+              <Projects />
+            </Box>
+            <Box id="skills" data-aos="fade-up">
+              <Skills />
+            </Box>
+            <Box id="experience" data-aos="fade-up">
+              <Experience />
+            </Box>
+          </Flex>
         </Box>
       </Box>
     </Box>
