@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [windowHeight, router.pathname]);
 
   return (
-    <ChakraProvider>
+    <ChakraProvider >
       <MenuBar showMenuBar={showMenuBar} />
       <Component {...pageProps} />
       <Contact />

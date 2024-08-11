@@ -72,7 +72,7 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
               textDecoration='none'
               _hover={{ textDecoration: 'none' }}
             >
-              Suzuki8
+              suzuki8
             </Link>
           </Text>
           <Flex justifyContent='center' alignItems='center'>
@@ -111,9 +111,9 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
               color='white'
               fontSize='3xl'
               textDecoration='none'
-              _hover={{ textDecoration: 'none' }}
+              _hover={{ color: 'rgba(0, 119, 190, 0.5)'}}
             >
-              Suzuki8
+              suzuki8
             </Link>
           </Text>
           <IconButton
@@ -121,8 +121,8 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
             aria-label='Open menu'
             onClick={onOpen}
             color='white'
-            bg='rgb(49, 130, 20, 0)'
-            _hover={{ bg: 'rgba(153, 153, 153, 0.3)' }}
+            bg='none'
+            _hover={{ color: 'rgba(0, 119, 190, 0.5)', bg: "none"}}
             size='lg'
           />
         </Flex>

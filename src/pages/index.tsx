@@ -63,50 +63,52 @@ export default function Home() {
   ]
 
   return (
-    <Box>
-      <Box w='100%' h='100%' bg='#faf3e0'>
-        <Box position='relative'>
-          <FootstepsIconComponent />
-          <Flex
-            id='home'
-            direction='column' // 縦方向に並べる
-            h='100vh'
+    <Box
+      w='100%'
+      h='100%'
+      bg='#faf3e0'
+    >
+      <Box position='relative'>
+        <FootstepsIconComponent />
+        <Flex
+          id='home'
+          direction='column' // 縦方向に並べる
+          h='100vh'
+          alignItems='center'
+          justifyContent='center'
+          position='relative'
+        >
+          <Box
+            position='absolute'
+            display='flex'
+            flexDirection='column'
             alignItems='center'
             justifyContent='center'
-            position='relative'
+            textAlign='center'
+            maxWidth='100%'
+            overflow='hidden'
           >
-            <Box
-              position='absolute'
-              display='flex'
-              flexDirection='column'
-              alignItems='center'
-              justifyContent='center'
-              textAlign='center'
-              maxWidth='100%'
-              overflow='hidden'
-            >
-              <BouncingBox
-                text={randomText} // ランダムなテキストを表示
-                fontSize='50px'
-                color='white'
-                mx='8px'
-              />
-            </Box>
-            <WaveAnimation waves={waves} />
-          </Flex>
-          <Flex direction='column' alignItems='center' data-aos='fade-up'>
-            <Box id='about' data-aos='fade-up'></Box>
-            <Box id='projects' data-aos='fade-up'>
-              <Projects />
-            </Box>
-            <Box id='skills' data-aos='fade-up'>
-              <Skills />
-            </Box>
-            <Box id='experience' data-aos='fade-up'>
-              <Experience />
-            </Box>
-          </Flex>
-        </Box>
+            <BouncingBox
+              text={randomText} // ランダムなテキストを表示
+              fontSize='50px'
+              color='white'
+              mx='8px'
+            />
+          </Box>
+          <WaveAnimation waves={waves} />
+        </Flex>
+        <Flex direction='column' alignItems='center' data-aos='fade-up'>
+          <Box id='about' data-aos='fade-up'></Box>
+          <Box id='projects' data-aos='fade-up'>
+            <Projects />
+          </Box>
+          <Box id='skills' data-aos='fade-up'>
+            <Skills />
+          </Box>
+          <Box id='experience' data-aos='fade-up'>
+            <Experience />
+          </Box>
+        </Flex>
       </Box>
     </Box>
   )
