@@ -14,9 +14,19 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import WaveAnimation from "./WaveAnimation"; // WaveAnimationコンポーネントをインポート
+import { useState, useEffect } from "react";
 
 const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [transform, setTransform] = useState("translateY(-100%)");
+
+  useEffect(() => {
+    if (showMenuBar) {
+      setTransform("translateY(0)");
+    } else {
+      setTransform("translateY(-100%)");
+    }
+  }, [showMenuBar]);
 
   const waves = [
     {
@@ -32,25 +42,27 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
   return (
     <>
       <Box
-        display={{ base: "none", md: showMenuBar ? "block" : "none" }}
+        display={{ base: "none", md: "block" }}
         position="fixed"
         top="0"
         width="100%"
         zIndex="1000"
+        transform={transform}
+        transition="transform 1s ease-in-out"
       >
         <Flex
           justifyContent="space-between"
           alignItems="center"
-          px="6" // パディングを増加
+          px="6"
           color="white"
-          height="100%" // 高さを100%に設定
+          height="100%"
         >
           <Text fontWeight="bold">
             <Link
               href="/"
-              mx="4" // マージンを増加
+              mx="4"
               color="white"
-              fontSize="3xl" // フォントサイズを増加
+              fontSize="3xl"
               textDecoration="none"
               _hover={{ textDecoration: "none" }}
             >
@@ -77,19 +89,21 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
         </Flex>
       </Box>
       <Box
-        display={{ base: showMenuBar ? "block" : "none", md: "none" }}
+        display={{ base: "block", md: "none" }}
         position="fixed"
         top="0"
         width="100%"
         zIndex="1000"
+        transform={transform}
+        transition="transform 1s ease-in-out"
       >
         <Flex justifyContent="space-between" alignItems="center" px="6">
           <Text fontWeight="bold">
             <Link
               href="/"
-              mx="4" // マージンを増加
+              mx="4"
               color="white"
-              fontSize="3xl" // フォントサイズを増加
+              fontSize="3xl"
               textDecoration="none"
               _hover={{ textDecoration: "none" }}
             >
@@ -97,13 +111,13 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
             </Link>
           </Text>
           <IconButton
-            icon={<HamburgerIcon w={8} h={8} />} // アイコンの大きさを指定
+            icon={<HamburgerIcon w={8} h={8} />}
             aria-label="Open menu"
             onClick={onOpen}
             color="white"
             bg="rgb(49, 130, 20, 0)"
             _hover={{ bg: "rgba(153, 153, 153, 0.3)" }}
-            size="lg" // ボタンの大きさを指定
+            size="lg"
           />
         </Flex>
         <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
@@ -132,13 +146,15 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
         </Drawer>
       </Box>
       <Box
-        display={{ base: showMenuBar ? "block" : "none" }}
+        display={{ base: "block" }}
         width="100%"
         height="30px"
         position="fixed"
         top="0"
         zIndex="500"
-        pointerEvents="none" // ここでpointer-eventsをnoneに設定
+        pointerEvents="none"
+        transform={transform}
+        transition="transform 1s ease-in-out"
       >
         <WaveAnimation waves={waves} />
       </Box>
