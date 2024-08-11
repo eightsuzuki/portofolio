@@ -66,7 +66,7 @@ const MenuBar = ({ showMenuBar }: { showMenuBar: boolean }) => {
               textDecoration="none"
               _hover={{ textDecoration: "none" }}
             >
-              Suzuki8
+            suzuki8
             </Link>
           </Text>
           <Flex justifyContent="center" alignItems="center">
